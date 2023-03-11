@@ -53,6 +53,24 @@ $usertype_id==3){
         "status" => "User added"
     ];
 
+}elseif($usertype_id==2){
+    $query = $mysql -> prepare ("INSERT INTO `users` ( `password`, email,dob,`name`,usertype_id) VALUES (?,?,?,?,?)");
+    $query -> bind_param("ssssi",  $hashed, $email,$dob,$name,$usertype_id);
+    $query -> execute();
+
+    $query=$mysql ->prepare("SELECT `idusers` FROM `users` WHERE `email`=?");
+    $query ->bind_param("s",$email);
+    $query -> execute();
+    $id = $query -> get_result();
+    $userid = $id -> fetch_assoc()["idusers"];
+
+    $query = $mysql -> prepare ("INSERT INTO `employees_info` ( `user_id`,`hospital_id`) VALUES (?,1)");
+    $query -> bind_param("s",  $userid);
+    $query -> execute();
+    $response = [
+        "status" => "User added"
+    ];
+
 }
 
 ?>
