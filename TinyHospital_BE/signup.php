@@ -34,6 +34,25 @@ if(isset($data)){
     $response = [
         "status" => "Username or Password already associated with another account"
     ];
+} elseif(
+$usertype_id==3){
+    $query = $mysql -> prepare ("INSERT INTO `users` ( `password`, email,dob,`name`,usertype_id) VALUES (?,?,?,?,?)");
+    $query -> bind_param("ssssi",  $hashed, $email,$dob,$name,$usertype_id);
+    $query -> execute();
+
+    $query=$mysql ->prepare("SELECT `idusers` FROM `users` WHERE `email`=?");
+    $query ->bind_param("s",$email);
+    $query -> execute();
+    $id=$query -> get_result();
+    $userid = $id -> fetch_assoc()["idusers"];
+
+    $query = $mysql -> prepare ("INSERT INTO `patients_info` ( `user_id`) VALUES (?)");
+    $query -> bind_param("s",  $userid);
+    $query -> execute();
+    $response = [
+        "status" => "User added"
+    ];
+
 }
 
 ?>
