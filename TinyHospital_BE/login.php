@@ -15,6 +15,11 @@
   
 
 
+    if ($object["usertype_id"]==1 && password_verify($password,$object["password"])){
+        $response = [
+            "user_type" => "admin"
+        ];  
 
+    }
 
 ?>
