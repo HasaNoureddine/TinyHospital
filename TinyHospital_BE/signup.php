@@ -71,6 +71,13 @@ $usertype_id==3){
         "status" => "User added"
     ];
 
+}else{
+    $query = $mysql -> prepare ("INSERT INTO `users` ( `password`, email,dob,`name`,usertype_id) VALUES (?,?,?,?,?)");
+    $query -> bind_param("ssssi",  $hashed, $email,$dob,$name,$usertype_id);
+    $query -> execute();
+
 }
+
+echo json_encode($response);
 
 ?>
