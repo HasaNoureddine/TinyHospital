@@ -30,5 +30,10 @@ while($row = $result->fetch_assoc()) {
 
 
 
+if(isset($data)){
+    $response = [
+        "status" => "Username or Password already associated with another account"
+    ];
+}
 
 ?>
