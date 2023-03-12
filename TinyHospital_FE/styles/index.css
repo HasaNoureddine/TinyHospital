@@ -1,0 +1,143 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: #f8fafb;
+  overflow-y: hidden;
+  border: 0;
+}
+
+.block {
+  display: block;
+}
+.hide {
+  display: none;
+}
+
+.flex {
+  display: flex;
+}
+.column {
+  flex-direction: column;
+}
+.jc-center {
+  justify-content: center;
+}
+.jc-start {
+  justify-content: flex-start;
+}
+.jc-end {
+  justify-content: flex-end;
+}
+.jc-sb {
+  justify-content: space-between;
+}
+.jc-sa {
+  justify-content: space-around;
+}
+.jc-se {
+  justify-content: space-evenly;
+}
+.ai-center {
+  align-items: center;
+}
+.ai-start {
+  align-items: flex-start;
+}
+.ai-end {
+  align-items: flex-end;
+}
+/*-----------------------------------------*/
+
+.text {
+  height: 100%;
+  width: 768px;
+  margin-right: 10px;
+  padding: 10px;
+}
+.intro {
+  margin-left: 30px;
+}
+.header {
+  font-size: 2rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: lighter;
+}
+.headertext {
+  text-align: left;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  color: #b3b3b3;
+}
+
+.img {
+  height: 60%;
+  width: 50%;
+  background-image: url(../images/login.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: 10px;
+  margin-right: 110px;
+}
+.inputfields {
+  height: 20%;
+  width: 100%;
+  margin-left: 70px;
+}
+
+input[type="text"],
+input[type="password"] {
+  font-size: medium;
+  font-weight: 100;
+  border: none;
+  border-bottom: 1px solid #b3b3b3;
+  width: 60%;
+  margin: 20px 0;
+}
+::placeholder {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  background-color: #f8fafb;
+  color: #b3b3b3;
+  font-size: small;
+}
+
+button {
+  height: 13%;
+  width: 60%;
+  margin-top: 50px;
+  font-family: "Roboto", sans-serif;
+  background-color: #38d39f;
+  color: white;
+  border-radius: 4px;
+  font-size: medium;
+  font-weight: 600;
+  margin-left: 70px;
+  border: solid 2px;
+}
+
+.icons {
+  height: 33%;
+  width: 100%;
+  margin-left: 300px;
+}
+
+.icons > img {
+  height: 50%;
+  width: 10%;
+  border-radius: 40%;
+  margin: 10px;
+}
+.outro {
+  height: 20%;
+  width: 50%;
+}
+.footertext {
+  text-align: left;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.25rem;
+  color: #b3b3b3;
+}
