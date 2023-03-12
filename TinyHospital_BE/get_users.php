@@ -2,7 +2,7 @@
 
 include('connection.php');
 
-$query = $mysql -> prepare ('SELECT * FROM `patients_info`');
+$query = $mysql -> prepare ('SELECT * FROM `users`');
 $query -> execute();
 $result = $query -> get_result();
 
@@ -11,7 +11,7 @@ while($object = $result -> fetch_assoc()){
 }
 
 $response = [
-    "patients" => $data
+    "users" => $data
 ];
 
 echo json_encode($response);
