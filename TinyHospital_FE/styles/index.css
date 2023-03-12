@@ -242,3 +242,10 @@ h3 {
   border: 4px soild #228a4f;
   color: white;
 }
+
+.sidebar {
+  height: 100%;
+  width: 15%;
+  background-color: #303137;
+  position: absolute;
+}
