@@ -41,9 +41,19 @@ axios({
   });
 });
 
+let element = document.getElementById("content");
+
+element.addEventListener("click", (e) => {
+  if (e.target.classList.contains("assign")) {
+    overlay.classList.remove("hide");
+    overlay.classList.add("flex");
+  }
+});
+
 let sidesubmit = document.getElementById("sidebarsubmit");
 
 sidesubmit.addEventListener("click", assign_room);
+sidesubmit.addEventListener("click", assign_med);
 
 function assign_room() {
   let userid = document.getElementById("idusers").value;
@@ -62,11 +72,11 @@ function assign_room() {
   }).then((result) => {
     console.log(result.data);
   });
+
+  overlay.classList.add("hide");
+  overlay.classList.remove("flex");
+  console.log(`room`);
 }
-
-let medsubmit = document.getElementById("medsubmit");
-
-medsubmit.addEventListener("click", assign_med);
 
 function assign_med() {
   let userid = document.getElementById("idusers").value;
@@ -83,4 +93,8 @@ function assign_med() {
   }).then((result) => {
     console.log(result.data);
   });
+
+  overlay.classList.add("hide");
+  overlay.classList.remove("flex");
+  console.log(`meds`);
 }

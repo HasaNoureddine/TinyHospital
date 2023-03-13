@@ -6,14 +6,13 @@ axios({
   const users = res.data.users;
   users.forEach((user) => {
     if (user.usertype_id == 3) {
-      console.log(`condition`);
       UserContainer.innerHTML += `
       <div class="card">
       <img src="../TinyHospital_FE/images/patient (2).svg" alt="Avatar" style="width:100%">
       <div class="container">
-          <h4><b>UserID${user.idusers}</b></h4>
+          <h4><b>UserID ${user.idusers}</b></h4>
           <p>Name ${user.name}</p>
-          <p>DOB:${user.dob}</p>
+          <p>DOB ${user.dob}</p>
       </div>
       <button class="assign">Assign</button>
      
@@ -23,20 +22,22 @@ axios({
   });
 });
 
-// let btns = document.getElementsByClassName("assign");
-// let side = document.getElementById("sidebar");
-// console.log(btns);
-// btns.onclick = () => {
-//   side.classList.remove("hide");
-//   side.classList.add("flex");
-// };
+let side = document.getElementById("sidebar");
+let overlay = document.getElementById("overlay");
+
+let element = document.getElementById("content");
+
+element.addEventListener("click", (e) => {
+  if (e.target.classList.contains("assign")) {
+    overlay.classList.remove("hide");
+    overlay.classList.add("flex");
+  }
+});
 
 let sidesubmit = document.getElementById("sidebarsubmit");
-
 sidesubmit.addEventListener("click", assign_patient);
 
 function assign_patient() {
-  console.log(`clicked`);
   let userid = document.getElementById("patientid").value;
   let hospitalid = document.getElementById("hospitalid").value;
 
@@ -51,6 +52,6 @@ function assign_patient() {
   }).then((result) => {
     console.log(result.data);
   });
-  side.classList.add("hide");
-  side.classList.remove("flex");
+  overlay.classList.add("hide");
+  overlay.classList.remove("flex");
 }
