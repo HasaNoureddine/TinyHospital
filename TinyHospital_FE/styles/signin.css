@@ -96,6 +96,7 @@ input[type="password"] {
   border-bottom: 1px solid #b3b3b3;
   width: 60%;
   margin: 20px 0;
+  outline: none;
 }
 ::placeholder {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",

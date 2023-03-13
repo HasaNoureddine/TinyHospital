@@ -7,7 +7,7 @@
 
     
 
-    $query = $mysql -> prepare("SELECT `password` FROM `users` where  email=? ");
+    $query = $mysql -> prepare("SELECT * FROM `users` where  email=? ");
     $query -> bind_param("s",$email );
     $query -> execute();
     $result = $query -> get_result();
@@ -15,9 +15,9 @@
   
 
 
-    if ($object["usertype_id"]==1 && password_verify($password,$object["password"])){
+    if ($object["usertype_id"]==1 ){
         $response = [
-            "user_type" => "admin"
+            "user_type" => 1
         ];  
 
     }else{
@@ -27,21 +27,21 @@
         $result = $query -> get_result();
         $object = $result -> fetch_assoc();
     
-        if($object["usertype_id"]==2 || $object["usertype_id"]==3 && password_verify($password,$object["password"]) ){
+        if($object["usertype_id"]==2 ){
                 $response = [
-                    "idusers" => $object["idusers"],
-                    "name" => $object["name"],
-                    "email" => $object["email"],
-                    "password" => $object["password"],
-                    "dob" => $object["dob"],
-                    "user_type" => "user",
+                    "user_type" => 2,
                 ];
                 
-        }else{
-            $response =[
-                "message" => "Credentials are incorrect"
+        }else if($object["usertype_id"]==3 ){
+            $response = [
+                "user_type" => 3,
             ];
-        };
+            
+        }else{
+                $response =[
+                    "message" => "Credentials are incorrect"
+                ];
+            };
     }
 
 

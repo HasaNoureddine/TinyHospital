@@ -50,7 +50,7 @@ $usertype_id==3){
     $query -> bind_param("s",  $userid);
     $query -> execute();
     $response = [
-        "status" => "User added"
+        "status" => $usertype_id
     ];
 
 }elseif($usertype_id==2){
@@ -68,13 +68,16 @@ $usertype_id==3){
     $query -> bind_param("s",  $userid);
     $query -> execute();
     $response = [
-        "status" => "User added"
+        "status" => $usertype_id
     ];
 
 }else{
     $query = $mysql -> prepare ("INSERT INTO `users` ( `password`, email,dob,`name`,usertype_id) VALUES (?,?,?,?,?)");
     $query -> bind_param("ssssi",  $hashed, $email,$dob,$name,$usertype_id);
     $query -> execute();
+    $response = [
+        "status" => $usertype_id
+    ];
 
 }
 
