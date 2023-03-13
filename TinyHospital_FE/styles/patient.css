@@ -239,3 +239,34 @@ h3 {
   color: white;
   font-weight: lighter;
 }
+
+#sidebar {
+  height: 15%;
+  width: 100%;
+  background-color: white;
+  border: white solid;
+}
+#sidebar > input {
+  height: 10%;
+  width: 20%;
+  background-color: #11c554;
+  border: #228a4f 2px solid;
+  border-radius: 4px;
+  margin: 7px;
+  outline: none;
+}
+#sidebar > input[type="submit"] {
+  color: WHITE;
+  font-size: large;
+}
+#sidebar > ::placeholder {
+  color: white;
+  font-weight: bold;
+  font-size: medium;
+}
+#sidebar > p {
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+  background-color: black;
+}

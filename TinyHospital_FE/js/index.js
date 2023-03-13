@@ -22,3 +22,35 @@ axios({
     }
   });
 });
+
+// let btns = document.getElementsByClassName("assign");
+// let side = document.getElementById("sidebar");
+// console.log(btns);
+// btns.onclick = () => {
+//   side.classList.remove("hide");
+//   side.classList.add("flex");
+// };
+
+let sidesubmit = document.getElementById("sidebarsubmit");
+
+sidesubmit.addEventListener("click", assign_patient);
+
+function assign_patient() {
+  console.log(`clicked`);
+  let userid = document.getElementById("patientid").value;
+  let hospitalid = document.getElementById("hospitalid").value;
+
+  let data = new FormData();
+  data.append("idusers", userid);
+  data.append("idhospitals", hospitalid);
+
+  axios({
+    method: "post",
+    url: "http://localhost/TinyHospital/TinyHospital_BE/assign_hospital.php",
+    data: data,
+  }).then((result) => {
+    console.log(result.data);
+  });
+  side.classList.add("hide");
+  side.classList.remove("flex");
+}
